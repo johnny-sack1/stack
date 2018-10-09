@@ -3,6 +3,8 @@ package com.codecool.stack;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.EmptyStackException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class StackTest {
@@ -42,5 +44,18 @@ public class StackTest {
         stack.push("string2");
         int numOfFreeSpaces = stack.getNumOfFreeSpaces();
         assertEquals(numOfFreeSpaces, 8);
+    }
+
+    @Test
+    void testPushWhenFull() {
+        for (int i = 0; i < 10; i++) {
+            stack.push("string");
+        }
+        assertThrows(StackOverflowError.class, () -> stack.push("string"));
+    }
+
+    @Test
+    void testPopWhenEmpty() {
+        assertThrows(EmptyStackException.class, () -> stack.pop());
     }
 }

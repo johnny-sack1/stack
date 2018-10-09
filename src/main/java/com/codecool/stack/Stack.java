@@ -1,5 +1,7 @@
 package com.codecool.stack;
 
+import java.util.EmptyStackException;
+
 public class Stack<T> {
     private int size;
     private int top = -1;
@@ -11,6 +13,9 @@ public class Stack<T> {
     }
 
     public void push(T t) {
+        if (top == size - 1) {
+            throw new StackOverflowError("Stack is full");
+        }
         stackArray[++top] = t;
     }
 
@@ -19,6 +24,9 @@ public class Stack<T> {
     }
 
     public T pop() {
+        if (top == -1) {
+            throw new EmptyStackException();
+        }
         return stackArray[top--];
     }
 
