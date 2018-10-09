@@ -21,4 +21,12 @@ public class Stack<T> {
     public T pop() {
         return stackArray[top--];
     }
+
+    public int getSize() {
+        return this.size;
+    }
+
+    public int getNumOfFreeSpaces() {
+        return size - top - 1;
+    }
 }

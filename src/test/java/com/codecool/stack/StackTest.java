@@ -29,4 +29,18 @@ public class StackTest {
         stack.pop();
         assertEquals(item1, stack.peek());
     }
+
+    @Test
+    void testSize() {
+        int size = stack.getSize();
+        assertEquals(size, 10);
+    }
+
+    @Test
+    void testFreeSpaces() {
+        stack.push("string1");
+        stack.push("string2");
+        int numOfFreeSpaces = stack.getNumOfFreeSpaces();
+        assertEquals(numOfFreeSpaces, 8);
+    }
 }
