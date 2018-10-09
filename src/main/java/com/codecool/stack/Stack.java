@@ -2,6 +2,7 @@ package com.codecool.stack;
 
 public class Stack<T> {
     private int size;
+    private int top = -1;
     private T[] stackArray;
 
     public Stack(int size) {
@@ -10,10 +11,14 @@ public class Stack<T> {
     }
 
     public void push(T t) {
-        stackArray[size - 1] = t;
+        stackArray[++top] = t;
     }
 
     public T peek() {
-        return stackArray[size - 1];
+        return stackArray[top];
+    }
+
+    public T pop() {
+        return stackArray[top--];
     }
 }

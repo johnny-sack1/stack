@@ -14,9 +14,19 @@ public class StackTest {
     }
 
     @Test
-    void testPeek() {
+    void testPushAndPeek() {
         String item = "test string";
         stack.push(item);
         assertEquals(item, stack.peek());
+    }
+
+    @Test
+    void testPop() {
+        String item1 = "first string";
+        String item2 = "second string";
+        stack.push(item1);
+        stack.push(item2);
+        stack.pop();
+        assertEquals(item1, stack.peek());
     }
 }
